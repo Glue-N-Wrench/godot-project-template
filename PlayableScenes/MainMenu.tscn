@@ -1,0 +1,109 @@
+[gd_scene load_steps=6 format=3 uid="uid://dm5phgnfsckve"]
+
+[ext_resource type="Texture2D" uid="uid://kw3rmhw0dm4c" path="res://icon.svg" id="1_ofdq6"]
+[ext_resource type="LabelSettings" uid="uid://dfsuictd67ek8" path="res://UI/home_label_settings.tres" id="2_d8e3l"]
+[ext_resource type="Script" path="res://UI/MainMenu/Start_Btn.gd" id="3_f3764"]
+[ext_resource type="Script" path="res://UI/MainMenu/BackBtn.gd" id="4_2d5hg"]
+[ext_resource type="Script" path="res://UI/MainMenu/Credits Btn.gd" id="4_qiav6"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ofdq6")
+expand_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.026
+anchor_top = 0.012
+anchor_right = 0.026
+anchor_bottom = 0.012
+offset_left = 0.0480003
+offset_top = -1.6
+offset_right = 739.048
+offset_bottom = 629.4
+alignment = 1
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "GMTK 2024"
+label_settings = ExtResource("2_d8e3l")
+horizontal_alignment = 1
+
+[node name="Start Btn" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Start"
+script = ExtResource("3_f3764")
+
+[node name="Credits Btn" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Credits
+"
+script = ExtResource("4_qiav6")
+
+[node name="Popup" type="Window" parent="VBoxContainer/Credits Btn"]
+title = "Credits!"
+initial_position = 2
+size = Vector2i(600, 400)
+transient = true
+unresizable = true
+content_scale_size = Vector2i(2, 2)
+
+[node name="CreditsText" type="RichTextLabel" parent="VBoxContainer/Credits Btn/Popup"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 592.0
+offset_bottom = 351.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "[u]Programing[/u]
+Steven
+William
+Chris
+
+[u]Art[/u]
+Troiaj
+
+[u]Audio[/u]
+Pete"
+autowrap_mode = 0
+
+[node name="BackBtn" type="Button" parent="VBoxContainer/Credits Btn/Popup"]
+custom_minimum_size = Vector2(100, 50)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -22.5
+offset_top = -31.0
+offset_right = 22.5
+grow_horizontal = 2
+grow_vertical = 0
+text = "back"
+script = ExtResource("4_2d5hg")
+
+[connection signal="pressed" from="VBoxContainer/Start Btn" to="VBoxContainer/Start Btn" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/Credits Btn" to="VBoxContainer/Credits Btn" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/Credits Btn/Popup/BackBtn" to="VBoxContainer/Credits Btn/Popup/BackBtn" method="_on_pressed"]
