@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dm5phgnfsckve"]
+[gd_scene load_steps=7 format=3 uid="uid://dm5phgnfsckve"]
 
 [ext_resource type="Texture2D" uid="uid://kw3rmhw0dm4c" path="res://icon.svg" id="1_ofdq6"]
 [ext_resource type="LabelSettings" uid="uid://dfsuictd67ek8" path="res://UI/home_label_settings.tres" id="2_d8e3l"]
 [ext_resource type="Script" uid="uid://ddcorj6rrwyx4" path="res://UI/MainMenu/Start_Btn.gd" id="3_f3764"]
 [ext_resource type="Script" uid="uid://ckjwf2ojii6p8" path="res://UI/MainMenu/BackBtn.gd" id="4_2d5hg"]
 [ext_resource type="Script" uid="uid://cc8k1sx1x3pqt" path="res://UI/MainMenu/Credits Btn.gd" id="4_qiav6"]
+[ext_resource type="Script" uid="uid://c8c7c8b5b24c6" path="res://PlayableScenes/option_btn.gd" id="6_eyv60"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -62,6 +63,7 @@ script = ExtResource("4_qiav6")
 title = "Credits!"
 initial_position = 2
 size = Vector2i(600, 400)
+visible = false
 transient = true
 unresizable = true
 content_scale_size = Vector2i(2, 2)
@@ -104,6 +106,15 @@ grow_vertical = 0
 text = "back"
 script = ExtResource("4_2d5hg")
 
+[node name="Option Btn" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Options
+"
+script = ExtResource("6_eyv60")
+
 [connection signal="pressed" from="VBoxContainer/Start Btn" to="VBoxContainer/Start Btn" method="_on_pressed"]
 [connection signal="pressed" from="VBoxContainer/Credits Btn" to="VBoxContainer/Credits Btn" method="_on_pressed"]
 [connection signal="pressed" from="VBoxContainer/Credits Btn/Popup/BackBtn" to="VBoxContainer/Credits Btn/Popup/BackBtn" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/Option Btn" to="VBoxContainer/Option Btn" method="_on_pressed"]

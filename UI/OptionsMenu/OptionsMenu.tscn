@@ -1,0 +1,62 @@
+[gd_scene load_steps=4 format=3 uid="uid://sfsnkv77s25d"]
+
+[ext_resource type="Script" uid="uid://bixh5sxc0s1wc" path="res://UI/OptionsMenu/OptionsMenu.gd" id="1"]
+[ext_resource type="AudioStream" uid="uid://baw12ht6xvb5" path="res://UI/UiSfx/ui decline synth audio.wav" id="2_s4owb"]
+[ext_resource type="AudioStream" uid="uid://c1elnnveu6x1" path="res://UI/UiSfx/ui accept synth audio.wav" id="3_b57bx"]
+
+[node name="OptionsMenu" type="Window"]
+title = "Options"
+initial_position = 1
+size = Vector2i(400, 300)
+visible = false
+script = ExtResource("1")
+
+[node name="TabContainer" type="TabContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+current_tab = 1
+
+[node name="Sound" type="HBoxContainer" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Controls" type="VBoxContainer" parent="TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="ApplyBut" type="Button" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -52.0
+offset_top = -31.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Apply"
+
+[node name="CloseBut" type="Button" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -31.0
+offset_right = 50.0
+grow_vertical = 0
+text = "Cancel"
+
+[node name="open panel sfx  - options" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_s4owb")
+bus = &"SFX"
+
+[node name="SoundPreviewSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_b57bx")
+bus = &"SFX"
+
+[connection signal="close_requested" from="." to="." method="_on_close_requested"]
+[connection signal="pressed" from="ApplyBut" to="." method="_on_apply_but_pressed"]
+[connection signal="pressed" from="CloseBut" to="." method="_on_close_requested"]
