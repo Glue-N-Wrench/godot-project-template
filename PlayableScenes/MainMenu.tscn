@@ -2,9 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://kw3rmhw0dm4c" path="res://icon.svg" id="1_ofdq6"]
 [ext_resource type="LabelSettings" uid="uid://dfsuictd67ek8" path="res://UI/home_label_settings.tres" id="2_d8e3l"]
-[ext_resource type="Script" path="res://UI/MainMenu/Start_Btn.gd" id="3_f3764"]
-[ext_resource type="Script" path="res://UI/MainMenu/BackBtn.gd" id="4_2d5hg"]
-[ext_resource type="Script" path="res://UI/MainMenu/Credits Btn.gd" id="4_qiav6"]
+[ext_resource type="Script" uid="uid://ddcorj6rrwyx4" path="res://UI/MainMenu/Start_Btn.gd" id="3_f3764"]
+[ext_resource type="Script" uid="uid://ckjwf2ojii6p8" path="res://UI/MainMenu/BackBtn.gd" id="4_2d5hg"]
+[ext_resource type="Script" uid="uid://cc8k1sx1x3pqt" path="res://UI/MainMenu/Credits Btn.gd" id="4_qiav6"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
